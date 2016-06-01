@@ -3,9 +3,9 @@ library(dplyr)
 library(tidyr)
 
 #load data
-toy_data <- read.csv("~/Downloads/refine_original.csv", row.names = NULL, header = T)
+toy_data <- read.csv("~/Documents/springboarddatawrangle/refine_original.csv", row.names = NULL, header = T)
 
-#Create corpus of mistakes - pretty much achieved through inspection 
+#Create corpus of mistakes - pretty much achieved through inspection (however not necessary for cleaning data)
 corpus <- toy_data2$company
 philips_corpus <- corpus[1:6]
 akzo_corpus <- corpus[7:13]
@@ -47,6 +47,9 @@ toy_data8 <- mutate(toy_data7, company_van_houten =
 toy_data9 <- mutate(toy_data8, company_unilever =
                       ifelse(grepl("unilever", company), 1, 0))
                     
+# Save to csv
+write.csv(toy_data9, "refine_clean.csv")
+
                     
                     
                     
